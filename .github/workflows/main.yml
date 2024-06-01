@@ -1,0 +1,12 @@
+name: CEX Claim
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '*/244 * * * *'
+jobs:
+  issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: wget https://cheatgame.pro/education/dataairdrop/datacex.txt; python cex_claim.py
